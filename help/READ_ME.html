@@ -1,0 +1,447 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>CodingJack's 3D Carousel - CSS3 3D Carousel with thumbnail grid fallback</title>
+	<meta name="author" content="CodingJack">
+	<meta name="copyright" content="CodingJack">
+	<meta name="generator" content="Documenter v1.6 http://rxa.li/documenter">
+	<meta name="date" content="2012-09-01T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+
+	<script src="js/jquery.1.6.4.js"></script>
+	<script src="js/cufon.js"></script><script src="js/Yanone_Kaffeesatz_Regular_400.font.js"></script>
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	<script src="js/shCore.js"></script>
+	<script src="js/shBrushCss.js"></script>
+	<script src="js/shBrushXml.js"></script>
+    <script src="js/shBrushJScript.js"></script>
+	<script>SyntaxHighlighter.defaults['toolbar'] = false;SyntaxHighlighter.all();</script>
+
+	<script>document.createElement('section');var duration=500,easing='swing';</script>
+	<script src="js/script.js"></script>
+	
+	<style>
+		html{background-color:#EEE;color:#383838;background-repeat:repeat;background-attachment:scroll;font-size: 14px}
+		::-moz-selection{background:#444444;color:#DDDDDD;}
+		::selection{background:#444444;color:#DDDDDD;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/logo.png);}
+		a{color:#0000FF;}
+		hr{border-top:1px solid #d5d5d5;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ol a{background-color:#DDDDDD;color:#222222;background-repeat:repeat;}
+		#documenter_sidebar ol a{-webkit-text-shadow:1px 1px 0px #EEEEEE;-moz-text-shadow:1px 1px 0px #EEEEEE;text-shadow:1px 1px 0px #EEEEEE;}
+		#documenter_sidebar ol{border-top:1px solid #AAAAAA;}
+		#documenter_sidebar ol a{border-top:1px solid #EEEEEE;border-bottom:1px solid #AAAAAA;color:#444444;}
+		#documenter_sidebar ol a:hover{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_sidebar ol a.current{background:#444444;color:#DDDDDD;border-top:1px solid #444444;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+		
+		a.cj {
+			
+			display: inline-block;
+			margin-bottom: 10px;
+			
+		}
+		
+		a.cj span {
+				
+			position: absolute;
+			width: 590px;
+			height: 300px;
+			display: block;
+			background: #000 url(assets/images/icon.png) no-repeat 515px 10px;
+			opacity: 0;
+			
+			-webkit-transition: opacity 0.5s ease-out;
+			-moz-transition: opacity 0.5s ease-out;
+			-o-transition: opacity 0.5s ease-out;
+			-ms-transition: opacity 0.5s ease-out;	
+			transition: opacity 0.5s ease-in-out;
+			
+		}
+		
+		a.fifty span {
+			
+			background-image: url(assets/images/icon_2.png);
+			
+		}
+		
+		a.cj span:hover {
+		
+			opacity: 0.75;
+			
+		}
+		
+		span.cj-highlight {
+		
+			font: 12px "Courier New", Courier, monospace;
+			display: inline-block;
+			padding: 1px 3px 1px 3px;
+			background-color: #d5d5d5;
+			border: 1px solid #b5b5b5;
+			box-sizing: border-box;
+			position: relative;
+			margin: 0 3px 0 3px;
+			top: -1px;
+			color: #000;
+			
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<a href="http://codecanyon.net/user/CodingJack" id="documenter_logo" target="_blank"></a>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Welcome to CodingJack's<br />CSS3 3D Carousel</a></li>
+            <li><a href="#special_notes">Special Notes</a></li>
+            <li><a href="#changing_fonts">Changing Fonts</a></li>
+            <li><a href="#caption_styles">Caption Styles</a></li>
+			<li><a href="#custom_settings">Custom Settings</a></li>
+			<li><a href="#anatomy_of_a_slide">Anatomy of a Slide</a></li>
+			<li><a href="#final_customization_steps">Final Carousel Customization Steps (these are important)</a></li>
+			<li><a href="#thumbnail_grid_fallback">Thumbnail Grid Fallback</a></li>
+			<li><a href="#smartphone_fallback">Smartphone Fallback</a></li>
+            <li><a href="#more_works">More works by CodingJack</a></li>
+
+		</ol>
+		<div id="documenter_copyright">Copyright CodingJack 2012<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v1.6</a> <br />Icons courtesy of <a href="http://www.iconfinder.com/search/?q=iconset%3Aproject" target="_blank">Navdeep Raj</a>
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover"><h1>CodingJack's 3D Carousel</h1><h2>CSS3 3D Carousel with thumbnail grid fallback</h2><hr><ul><li>By: CodingJack</li><li><a href="http://codecanyon.net/user/CodingJack">codecanyon.net/user/CodingJack</a></li></ul><p>Thank you for purchasing CodingJack's 3D Carousel.  This documentation will help you customize the plugin.  &nbsp;I highly recommended customizing the carousel before adding it to your web pages.</p>
+    
+    <h3>Have a Question?  Search the item's discussion page:</h3><br />
+    
+<script>
+  (function() {
+    var cx = '013170324715308408920:tpn4a3mfv5y';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+<h3>Need this item customized?  <a href="mailto:support@codingjack.com">Contact CodingJack</a></h3><br />
+
+</section>
+
+<section id="special_notes">
+
+	<h4>Special Notes</h4>
+    
+    <p>1) The carousel won't work locally in Chrome (unless you have a local server).  This is due to HTML5 Canvas drawing restrictions.  But you can use Safari or Firefox for customizing the carousel locally and it will work in Chrome when uploaded online to your website.</p>
+    
+    <p>2) When the carousel first initializes, the browser is working hard for a second or two and the frame rate drops.  Because of this, a gif preloader is not recommended as it will likely struggle to animate.  As a solution, a static "preloading" png image is displayed instead.  There are two versions of this graphic, one white and one black.  The default is white, but to change this, open the file named <span class="cj-highlight">css/cj-carousel.css</span>, comment out the white version and then uncomment the black version.</p>
+    
+<pre class="brush: css">
+.cj-wrapper {
+    
+    background-image: url(../img/preloader_white.png);
+    /*background-image: url(../img/preloader_black.png);*/
+    
+}
+</pre>
+
+	<p><br />3) When using transparent png's, similar to the <span class="cj-highlight">icons.html</span> example that came with the example, all png images should have the same image size dimensions.  To accomplish this, sort through your icons and find the one with the lagest width, and then find the one with the largest height.  To maintain symmetry, these values should then be applied to every png.  And finally, for the reflection to work well, the graphic itself should be aligned to the bottom of the stage/canvas.  Below is an example:<br /><br /><img src="assets/images/png.png" width="128" height="115" alt="" /></p>
+    
+    <p><br />4) To change the distance between the main thumbnail and its reflection, open the file named <span class="cj-highlight">css/cj-carousel.css</span> and edit the <span class="cj-highlight">margin-top</span></p>
+
+<pre class="brush: css">
+.cj-reflection {
+	
+	margin-top: 3px;
+	
+}
+</pre>
+
+<p><br />5) The plugin supports multiple instantiation.  This means you can have more than one carousel on your web page.  To accomplish this, just duplicate the HTML markup you see inside the included html files so you end up with two <span class="cj-highlight">cj-wrapper</span> divs.</p>
+
+</section>
+
+<section id="changing_fonts">
+
+<h4>Fonts</h4>
+
+<p>The carousel uses Google Fonts combined with Google Font Loader.  To change the Google font, open the file named <span class="cj-highlight">jquery.cj-carousel.js</span>, and at the very top you'll see the variable <span class="cj-highlight">googleFonts</span>.  Enter the name to the new font you wish to use here.  If you do not wish to use Google fonts for the caption headers, change the variabled <span class="cj-highlight">useGoogleFonts</span> to <span class="cj-highlight">false</span>.
+</p>
+
+<pre class="brush: js">
+var useGoogleFonts = true,
+googleFonts = [&quot;Patua+One&quot;],
+</pre>
+
+<p>
+Next open the css file named <span class="cj-highlight">css/cj-carousel.css</span>.  Inside this file, the following rules are where the font names are declared:
+</p>
+
+<pre class="brush: css">
+.cj-caption {
+    
+    font: 14px Georgia, &quot;Times New Roman&quot;, Times, serif;    
+    
+}
+</pre>
+<pre class="brush: css">
+.cj-caption h3 {
+
+    font: 16px &quot;Patua One&quot;, &quot;Times New Roman&quot;, Times, serif;
+    
+}
+</pre>
+
+</section>
+
+<section id="caption_styles">
+
+<h4>Captions</h4>
+
+<p>You may want to change the caption's text color, background color, border colors.  Open the css file named <span class="cj-highlight">css/cj-carousel.css</span> and look for the following rules to change these colors:</p>
+
+<pre class="brush: css">
+.cj-caption {
+   
+    background-color: #3691EE;
+    color: #FFF;
+    
+}
+</pre>
+<pre class="brush: css">
+.cj-border {
+
+    border-top: 1px solid #3691EE;
+    
+}
+</pre>
+<pre class="brush: css">
+.cj-caption div {
+
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    
+}
+</pre>
+
+</section>
+
+<section id="custom_settings">
+	<h3>Custom Settings</h3><hr class="notop">
+<p>
+	Inside the <span class="cj-highlight">index.html</span> file, you&#39;ll find a long list of settings.&nbsp; Some of the settings are easy to understand, but for the 3d-specific settings such as <span class="cj-highlight">rotateX</span> and <span class="cj-highlight">translateZ</span>, I recommend viewing the original preview on CodeCanyon to get a better understanding of how these settings alter the viewport of the carousel.&nbsp;</p>
+<pre class="brush: html">
+&lt;div class=&quot;cj-carousel&quot;
+    
+    data-autoplay=&quot;true&quot;
+    data-animateIn=&quot;true&quot;  
+    data-hoverShine=&quot;true&quot;
+    data-reflection=&quot;true&quot;
+    data-reflectAlpha=&quot;0.5&quot;
+    
+    data-spacing=&quot;60&quot;
+    data-rotateX=&quot;-6&quot;
+    data-rotateZ=&quot;0&quot;
+    data-translateZ=&quot;-300&quot;
+    
+    data-speed=&quot;0.1&quot;
+    data-threshold=&quot;.0025&quot;
+    
+    data-fallbackSpacing=&quot;5&quot;
+    data-fallbackColumns=&quot;4&quot;
+    data-smartphonesUseFallback=&quot;true&quot;
+&nbsp;&nbsp;&nbsp; data-smartphoneFallbackIsResponsive=&quot;true&quot;
+    
+&gt;&lt;!-- end of tag --&gt;
+
+
+</pre>
+<p>
+
+	<strong>autoPlay:</strong> Auto spin the carousel, <span class="cj-highlight">true/false</span><br>
+	<strong>animateIn:</strong> Animate the carousel in, <span class="cj-highlight">true/false</span><br>
+	<strong>hoverShine:</strong> The HTML5 Canvas <span class="cj-highlight">shine</span> effect on mouseover, <span class="cj-highlight">true/false</span><br>
+	<strong>reflection:</strong> Use image reflection, <span class="cj-highlight">true/false</span><br>
+    <strong>reflectAlpha:</strong> The reflection's transparency level, <span class="cj-highlight">0-1</span><br>
+	<br>
+	<strong>spacing:</strong> The spacing between items<br>
+	<strong>rotateX:</strong> Negative number allows you to see the carousel items in the back better<br>
+	<strong>rotateZ:</strong> Rotates the carousel on an angle<br>
+	<strong>translateZ:</strong> Adds depth to the carousel<br>
+	<br>
+	<strong>speed:</strong> The speed at which the carousel moves (without mouse interaction).<br>
+	<strong>threshold:</strong> This number is used to speed up the carousel during mouse interaction<br>
+	<br>
+	<strong>fallbackSpacing:</strong> The spacing to be applied to the items in fallback thumb grid mode<br>
+	<strong>fallbackColumns:</strong> The number of columns to create for the fallback thumb grid mode<br>
+	<strong>smartphonesUseFallback:</strong> Choose to use the thumbnail grid for smartphones, <span class="cj-highlight">true/false</span><br>
+	<strong>smartphoneFallbackIsResponsive:</strong> Choose to use display the thumbnails in a blocked/vertical presentation, <span class="cj-highlight">true/false</span></p>
+</section>
+<section id="anatomy_of_a_slide">
+	<h3>Anatomy of a Slide</h3><hr class="notop">
+<p>
+	Each slide in the carousel starts and ends with an HTML5 <span class="cj-highlight">figure</span> tag.&nbsp; To add a new item to the carousel, just duplicate a <span class="cj-highlight">figure</span>.&nbsp; To remove an item from the carousel, delete a <span class="cj-highlight">figure</span>.</p>
+<pre class="brush: html">
+&lt;figure&gt;
+&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp; &lt;!-- #1 --&gt;
+&nbsp;&nbsp;&nbsp; &lt;div class=&quot;cj-thumb&quot; data-url=&quot;http://www.google.com&quot; data-target=&quot;_blank&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- #2 --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src=&quot;img/pixel.gif&quot; data-src=&quot;img/1.jpg&quot; width=&quot;250&quot; height=&quot;150&quot; alt=&quot;&quot; /&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- #3 --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class=&quot;cj-caption&quot;&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- #4 --&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h3&gt;CSS3 3D Transforms&lt;/h3&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;This is some text and this is some more and this is some more&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;
+
+&nbsp;&nbsp;&nbsp; &lt;/div&gt; &nbsp;
+
+&lt;/figure&gt;
+</pre>
+<ol>
+	<li>
+		This is where an item&#39;s hyperlink is placed.&nbsp; <span class="cj-highlight">data-url</span> represents the url of the hyperlink, and <span class="cj-highlight">data-target</span> represents the window target for the link.&nbsp; <em>Delete the <span class="cj-highlight">data-url</span> attribute if you do not wish to hyperlink your carousel items.</em></li>
+	<li>
+		The carousel thumbnail image.</li>
+	<li>
+		The item&#39;s caption.&nbsp; Delete entirely if you do not wish to use a caption.</li>
+	<li>
+		The div where the item caption text is placed.&nbsp; Any HTML can go inside this div</li>
+</ol>
+<p>&nbsp;
+	</p>
+</section>
+<section id="final_customization_steps">
+	<h3>Final Customization Steps</h3><h4>Accurate mouse interaction + "clearing" the Carousel</h4><hr class="notop">
+<p>
+	Before we get started, open the <span class="cj-highlight">css/cj-carousel.css</span> file.&nbsp;</p>
+<br /><h4 style="margin-top: 0">
+	Finding the carousel&#39;s approximate width and height</h4>
+<p>
+	In order for mouse interaction to be accurate, a CSS <span class="cj-highlight">width</span> is needed.&nbsp; In addition, a CSS <span class="cj-highlight">height</span> is needed for other elements on the page to <span class="cj-highlight">clear</span> the carousel.</p>
+<p>
+	To measure the carousel&#39;s width and height, inside the css file you just opened, in the very first rule named <span class="cj-highlight">.cj-wrapper</span>, you&#39;ll see <span class="cj-highlight">background-color</span> commented out.&nbsp; Uncomment this property and then view the carousel in Firefox.</p>
+<pre class="brush: css">
+.cj-wrapper {
+	
+	width: 640px;
+	height: 210px;
+	/*background-color: #F00;*/
+	
+}
+</pre>
+
+<p>If you're using the "icons.html" file, edit this rule instead:</p>
+
+<pre class="brush: css">
+.cj-icons {
+
+	width: 540px;
+	height: 175px;
+	/*background-color: #F00;*/
+	
+}
+</pre>
+
+<p>
+	You should now see a red rectangle sitting behind the carousel.&nbsp; The rectangle&#39;s size should be approximately the same size as the carousel that you see in the browser.&nbsp; If the rectangle is larger or smaller than the visible carousel, adjust the <span class="cj-highlight">width</span> and <span class="cj-highlight">height</span> values until the carousel and the rectangle are almost identical in size.</p>
+<p>
+	Although we&#39;re adjusting the <span class="cj-highlight">width</span> and <span class="cj-highlight">height</span> parameters, we aren't changing the actual size of the carousel.&nbsp; <strong>Because the carousel is 3D, adjusting the carousel&#39;s visible size will depend on the following:</strong></p>
+<ol>
+	<li>
+		The size of your thumbnails.</li>
+	<li>
+		How many items the carousel has.</li>
+	<li>
+		The carousel&#39;s 3D settings (spacing, translateZ, etc.).&nbsp; See <span class="cj-highlight">custom settings</span> for more information.</li>
+</ol>
+
+</section>
+<section id="thumbnail_grid_fallback">
+	<h3>Thumbnail Grid Fallback</h3><hr class="notop">
+<p>
+	<img alt="" src="assets/images/image_3.jpg" style="width: 960px; height: 312px;"></p>
+<p>
+	The carousel relies on CSS3 3d Transforms.&nbsp; At the moment, the only browsers that support this new CSS3 feature are Firefox, Chrome, Safari, IOS and Android.&nbsp; So for Opera and Internet Explorer, the script will create and show a thumbnail grid instead.<br>
+	<br>
+	The thumbnail grid presentation is based on a few factors.&nbsp; The first two are set in the <span class="cj-highlight">custom settings</span> and are named <span class="cj-highlight">fallbackSpacing</span> and <span class="cj-highlight">fallbackColumns</span>.&nbsp; <span class="cj-highlight">fallbackSpacing</span> will be the spacing between each thumbnail in pixels.&nbsp; <span class="cj-highlight">fallbackColumns</span> will be the number of columns the grid will display.<br>
+	<br>
+	Due to the nature of a grid display, it is recommended that the number of items used are divisible by the number of columns.&nbsp; For example, a grid of 8 items and 4 columns will create two rows and as a result appear symmetrical.&nbsp; If you have 9 carousel items, 3 columns would create a symmetrical grid.<br>
+	<br>
+	The fallback grid will resize the thumbnail images to fit within the fallback container.&nbsp; Resizing is based on the total width of the grid&#39;s container as well as the total number of columns selected.&nbsp; To adjust the total width of the fallback container, open <span class="cj-highlight">css/cj-carousel.css</span> and scroll toward the bottom of the file.&nbsp; There you will find the CSS used for the fallback grid, and the width of the container can be changed inside the <span class="cj-highlight">.cj-fallback</span> rule.</p>
+<pre class="brush: css">
+.cj-fallback {
+
+    width: 960px;
+    height: auto;
+    line-height: 0;
+    
+}
+</pre>
+<p>&nbsp;
+	</p>
+</section>
+<section id="smartphone_fallback">
+	<h3>Smartphone Fallback</h3><hr class="notop">
+<p>
+	The carousel looks great on tablets, but will appear fairly small on smartphones.&nbsp; In addition, you may have a responsive website that the carousel is not compatible with.&nbsp; Because of this, there is an option to display the carousel in <span class="cj-highlight">thumbnail grid fallback</span> mode.&nbsp; This option can be set to true of false in the carousel&#39;s main settings (see <span class="cj-highlight">custom settings</span> in the menu on your left).&nbsp;</p>
+
+<pre class="brush: html">
+data-smartphoneUsesFallback=&quot;true&quot;
+</pre>
+
+<p>
+	You can also set the smartphone fallback to be <span class="cj-highlight">responsive</span> in the main settings.&nbsp; If optioned, the grid display will be abandoned and the thumbnails will be placed on top of one another instead.&nbsp; When testing the smartphone fallback, keep in mind that it will only activate when a screen size of less than 600 pixels is <i>initially</i> detected.  Firefox 15 has a great new tool for testing screen sizes.  Select <span class="cj-highlight">tools > Web Developer > Responsive Design View</span> and select a size less than 600 pixels.  Then reload the page and you will be able to see the mobile responsive view.</p>
+<pre class="brush: html">
+data-smartphoneFallbackIsResponsive=&quot;true&quot;
+</pre>
+<p>&nbsp;
+	</p>
+<p>
+	To change the mobile responsive layout, navigate to the bottom of the <span class="cj-highlight">css/cj-carousel.css</span> file and look for the following media query:</p>
+<pre class="brush: css">
+@media screen and (max-width: 600px) {
+</pre>
+<p>&nbsp;
+	</p>
+</section>
+
+<section id="more_works">
+	
+    <h4>More works by CodingJack</h4>
+    
+	<a class="cj" href="http://codecanyon.net/item/galleryjack-rebooted-a-jquery-fullscreen-gallery/844501" target="_blank"><span></span><img src="assets/images/galleryjack.jpg" width="590" height="300" alt="" /></a><br />
+    <a class="cj" href="http://codecanyon.net/item/blades-jquery-a-jquery-banner-rotator/239038" target="_blank"><span></span><img src="assets/images/blades.jpg" width="590" height="300" alt="" /></a><br />
+    <a class="cj fifty" href="http://themeforest.net/item/niarra-html5-template/2862711" target="_blank"><span></span><img src="assets/images/niarra.jpg" width="590" height="300" alt="" /></a>
+
+</section>
+
+	</div>
+</body>
+</html>
